@@ -8,7 +8,12 @@ app.use(bodyParser.json())
 
 const PORT= process.env.PORT || 3000
 
+const logRequest= (req, res, next) => {
+    console.log(`[${new Date().toLocaleString()}] Request made to: ${req.originalUrl}`)
+    next()
+}
 
+app.use(logRequest)
 app.get('/', function (req, res) {
     res.send("welcome to my hotel.")
 })
@@ -26,6 +31,5 @@ app.listen(PORT, () => {
 })
  
 
-// akhilesh bindra
-// bsbdfb
+// akhilesh bindra 
 // rohit bindra
